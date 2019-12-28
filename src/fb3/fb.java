@@ -19,7 +19,7 @@ public class fb {
                 ch = in.nextInt();
                 if (ch == 1) {
                     us.sign_up();
-                    if()
+                
                     active = true;
 
                 } else if (ch == 2) {
