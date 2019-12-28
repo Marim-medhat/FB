@@ -1,5 +1,3 @@
-import org.junit.Assert;
-import org.junit.Test;
 
 class usertest {
 	userController ui = new userController();
