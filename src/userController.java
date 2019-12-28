@@ -114,13 +114,13 @@ public class userController implements ui {
 			  }
 			  else
 			  {  for( i =0;i<users.size();i++)
-			  {  System.out.println();
+			  {  
 				  if(users.get(i).name.equals(name1))
 				  { 
 					  users.get(i).FRrecieved.add(user1.name);
 					  user1.FRsent.add(name1);
 					
-					 System.out.println(users.get(i).FRrecieved);
+					
 					 
 					
 					  System.out.println("request sent!");
@@ -309,6 +309,3 @@ public class userController implements ui {
 	 
 	 
 }
-
-
-
