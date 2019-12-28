@@ -1,16 +1,16 @@
-package fb3;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.Vector;
 
-public class userController{
-  static Map<String,String>user2password=new HashMap<>();
+
+public class userController implements ui {
+	 static Map<String,String>user2password=new HashMap<>();
 	 public static Vector <user> users=new Vector();
 	 public Vector <String> p=new Vector();
 	 public  user user=new user("","","","","","");
-	 public static user user1=new user("","");
+	 public  user user1=new user("","");
+
 	 public boolean sign_up()
 		{     Scanner s=new Scanner(System.in);
 		String name, password,email,gender,country, birthdate;
@@ -44,9 +44,7 @@ public class userController{
 				  user=new user(name,password,email,gender,country,birthdate);
 				  
 				  users.add(user);
-				  for(user x : users)
-				  {
-					  System.out.println(x.name);}
+			
 				  return true;
 			  }
 			  
@@ -97,7 +95,7 @@ public class userController{
 			  
 			 
 		}
-	 public void send_friend_request()
+	 public boolean send_friend_request()
 		{
 			String name1;
 			int i =0;
@@ -106,12 +104,13 @@ public class userController{
 			 Scanner s=new Scanner(System.in);
 			  name1=s.next();
 			  
-			 
+			 boolean back=false;
 			  
 			boolean found=  user2password.containsKey(name1);
 			  if(found==false)
 			  {
 				  System.out.println("user name does not exist");
+				 back= false;
 			  }
 			  else
 			  {  for( i =0;i<users.size();i++)
@@ -125,20 +124,21 @@ public class userController{
 					 
 					
 					  System.out.println("request sent!");
+					  back=true;
+					  
 					  break;
+					
+					 
 				  }
 			  }}
 			  
-			  for(user x : users)
-			  {
-				  System.out.println(x.name);
-				  System.out.println(x.FRrecieved);
-				  System.out.println(x.FRsent);
-			  }
+			
 			  
 			  show_friend_request(users.get(i) ) ; 
 			  
 			  accept_request( users.get(i));
+			  
+			 return back;
 		}
 	 
 		public void show_friend_request( user x)
@@ -155,10 +155,10 @@ public class userController{
 			}
 
 		}
-		public  void accept_request( user x)
+		public boolean accept_request( user x)
 		
 		{
-			
+			boolean back=false;
 		
 			 
 				
@@ -173,6 +173,7 @@ public class userController{
 					 int n =s.nextInt();
 					 user.FRrecieved.remove(user.FRrecieved.get(n));
 					// friends.add(senderName.get(n));
+					 back=true;
 					 System.out.println("you have a new friend!");
 					 
 				 }
@@ -182,6 +183,7 @@ public class userController{
 					 int n =s.nextInt();
 					 user.FRrecieved.remove(user.FRrecieved.get(n));
 					 System.out.println("this request has been deleted!");
+					 back=false;
 				 }
 				 else if(choice==3)
 				 {
@@ -192,7 +194,9 @@ public class userController{
 					 System.out.println("wrong option,try again!");
 				 }
 					
-				}}}}
+				}}}
+		return back;	
+		}
 		
 		
 		public void sign_up_on_paypal()
@@ -230,8 +234,11 @@ public class userController{
 		  
 			
 		
-		if(!p.contains(user1.name))
-		 {
+		if(p.contains(user1.name))
+		{
+			System.out.println(" you are already premium");
+		}
+		else  {
 		
 			 {System.out.println("get a premium subscription and enjoy extra options for 99$ per year, "
 			 		+ "choose 1 to proceed  ");
@@ -294,6 +301,9 @@ public class userController{
 			 
 			  }} }
 		}
+		
+		
+	
 	 
 	 
 	 

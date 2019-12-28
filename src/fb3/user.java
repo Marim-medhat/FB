@@ -1,8 +1,8 @@
-package fb3;
-
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Vector;
 
-public class  user {
+public class user {
 	
 		String name,password,email,gender,country,birthDate;
 		 Vector<String> FRsent=new Vector();
@@ -29,6 +29,63 @@ public class  user {
 			this.name=name;
 			 this.password=password;
 		}
+		
+		void search()
+		{
+			
+		}
+		void post()
+		{
+			
+		}
+		
+		void logout()
+		{
+			
+		}
+		void request()
+		{
+			
+		}
+		void viewcomment()
+		{
+			
+		}
+		
+		void viewrequest()
+		{
+			
+		}
+		
+		
+		void searchfriend()
+		{
+			
+		}
+		
+		void searchhashtag()
+		{
+			
+		}
+		
+		void uploadpic()
+		{
+			
+		}
+		group groupjoin()
+		{
+			group p =null;
+			return p;
+		}
+		
+		
+		
 	}
 
 	
+	
+	
+	
+
+
+
